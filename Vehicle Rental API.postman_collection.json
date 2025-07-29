@@ -1,0 +1,454 @@
+{
+	"info": {
+		"_postman_id": "0cca2c5d-8eb4-4bfb-b1b0-41d4861b4271",
+		"name": "Vehicle Rental API",
+		"description": "Complete API collection for Vehicle Rental Backend System with Pydantic validation and raw SQL queries",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26855598"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"John Doe\",\n    \"email\": \"john.doe@example.com\",\n    \"phone\": \"1234567890\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/{{user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"John Updated\",\n    \"email\": \"john.updated@example.com\",\n    \"phone\": \"1111111111\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/users/{{user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/{{user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vehicle Availability",
+			"item": [
+				{
+					"name": "Check All Vehicles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/vehicles/availability?pickup_date=2024-02-15&return_date=2024-02-18",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"vehicles",
+								"availability"
+							],
+							"query": [
+								{
+									"key": "pickup_date",
+									"value": "2024-02-15"
+								},
+								{
+									"key": "return_date",
+									"value": "2024-02-18"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check SUVs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/vehicles/availability?pickup_date=2024-02-15&return_date=2024-02-18&type=suv",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"vehicles",
+								"availability"
+							],
+							"query": [
+								{
+									"key": "pickup_date",
+									"value": "2024-02-15"
+								},
+								{
+									"key": "return_date",
+									"value": "2024-02-18"
+								},
+								{
+									"key": "type",
+									"value": "suv"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Small Cars",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/vehicles/availability?pickup_date=2024-02-15&return_date=2024-02-18&type=small_car",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"vehicles",
+								"availability"
+							],
+							"query": [
+								{
+									"key": "pickup_date",
+									"value": "2024-02-15"
+								},
+								{
+									"key": "return_date",
+									"value": "2024-02-18"
+								},
+								{
+									"key": "type",
+									"value": "small_car"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Vans",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/vehicles/availability?pickup_date=2024-02-15&return_date=2024-02-18&type=van",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"vehicles",
+								"availability"
+							],
+							"query": [
+								{
+									"key": "pickup_date",
+									"value": "2024-02-15"
+								},
+								{
+									"key": "return_date",
+									"value": "2024-02-18"
+								},
+								{
+									"key": "type",
+									"value": "van"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bookings",
+			"item": [
+				{
+					"name": "Create Booking",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": {{user_id}},\n    \"vehicle_id\": {{vehicle_id}},\n    \"pickup_date\": \"2025-07-29\",\n    \"return_date\": \"2025-07-30\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/bookings",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"bookings"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reports",
+			"item": [
+				{
+					"name": "Daily Report - All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/reports/daily?date=2025-07-30",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"reports",
+								"daily"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2025-07-30"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Daily Report - SUVs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/reports/daily?date=2024-02-15&vehicle_type=suv",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"reports",
+								"daily"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2024-02-15"
+								},
+								{
+									"key": "vehicle_type",
+									"value": "suv"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Error Tests",
+			"item": [
+				{
+					"name": "Invalid User - Missing Fields",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Invalid User\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Invalid Email",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test User\",\n    \"email\": \"invalid-email\",\n    \"phone\": \"1234567890\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rental Too Long",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 1,\n    \"vehicle_id\": 1,\n    \"pickup_date\": \"2024-02-15\",\n    \"return_date\": \"2024-02-25\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/bookings",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"bookings"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						""
+					]
+				},
+				"description": "Check if the API is running and get available endpoints"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:5000"
+		},
+		{
+			"key": "user_id",
+			"value": "1"
+		},
+		{
+			"key": "vehicle_id",
+			"value": "5"
+		}
+	]
+}
